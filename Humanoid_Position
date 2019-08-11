@@ -1,0 +1,16 @@
+-- This script gets the position of the Humanoid
+	
+
+-- Author:  Julio Renta
+-- Created: 27 July 2019
+
+--space = game.Workspace
+local uis = game:GetService("UserInputService")
+
+ 
+-- Fires when the user tries to jump
+local function Jump()
+    print(game.Workspace.Dreaguns.HumanoidRootPart.Position)
+end
+ 
+uis.JumpRequest:Connect(Jump)
