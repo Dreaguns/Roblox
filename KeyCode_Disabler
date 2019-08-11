@@ -1,0 +1,25 @@
+-- KeyCode_Disabler is supposed to deactivate the following keys: W, S, Left, Right, UP & Down
+
+
+-- Must access the Service called "ContextActionService" in order to access a function called BindActionAtPriority
+-- A list of Services can be found here: https://roblox.fandom.com/wiki/Category:Services
+
+-- The BindActionAtPriority function can be found here: https://developer.roblox.com/en-us/api-reference/class/ContextActionService
+	-- BindActionAtPriority ( string actionName , Function functionToBind , bool createTouchButton , int priorityLevel , Tuple inputTypes )
+		-- The actionName can be any name you want - make it related to your purpose
+		-- The function to bind is ContextActionResult.Sink because it does not let any bounded actions under it continue
+			-- For info on .Sink can be found here: https://developer.roblox.com/en-us/api-reference/enum/ContextActionResult
+		
+		
+-- Author:  Julio Renta
+-- Created: 27 July 2019
+
+
+
+
+
+local ContextActionService = game:GetService("ContextActionService")
+
+ContextActionService:BindActionAtPriority("KeyCode_Disabler", function()
+	return Enum.ContextActionResult.Sink
+end, false, Enum.ContextActionPriority.High.Value, Enum.KeyCode.Up, Enum.KeyCode.Down, Enum.KeyCode.Left, Enum.KeyCode.Right, Enum.KeyCode.W, Enum.KeyCode.S)
